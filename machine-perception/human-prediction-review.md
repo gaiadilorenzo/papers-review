@@ -1,12 +1,15 @@
 ### Convolutional Autoencoders for Human Motion Infilling
-Task: motion infilling for 3D human motion data.
+## Task
+Motion infilling for 3D human motion data.
 
-Proposed Solution: treat motion infilling as an inpainting problem and to train a convolutional de-noising autoencoder on image-like representations of motion sequences. It proposes variations of the idea to combine l1 or l2 penalized auto-encoders with an adversarial loss in order to synthesize realistic looking nat- ural images
+## Proposed Solution 
+Treat motion infilling as an inpainting problem and to train a convolutional de-noising autoencoder on image-like representations of motion sequences. It proposes variations of the idea to combine l1 or l2 penalized auto-encoders with an adversarial loss in order to synthesize realistic looking nat- ural images
 
-Challenges: Motion infilling is challenging as it requires learning smooth transitions between possibly different types of motion. RNN have been used for this task, although they are notoriously difficult to condition for future sequences. Regarding this bi-directional structure have been used to support this, although the supported gap size is fixed and short.
+## Challenges
+Motion infilling is challenging as it requires learning smooth transitions between possibly different types of motion. RNN have been used for this task, although they are notoriously difficult to condition for future sequences. Regarding this bi-directional structure have been used to support this, although the supported gap size is fixed and short.
 Using CNN avoids the issue caused by recurrent models. Although the problem arising when using such representations is that neighboring “pixels” are not necessarily neighboring joints in the skeletal hierarchy (some solutions are, dense layersspanning the entire height, large kernel sizes, 1d convolutional layer over the temporal domain only).
 
-Related Works:
+## Related Works
 - `RNN` .
     - Issues: 
         1. It stucks to a mean pose (sol: perturb the input at test time with Gaussian noise, removing joints entirely, training the model on its own outputs, or employing a specialized output layer that follows the kine- matic chain of the skeleton)
